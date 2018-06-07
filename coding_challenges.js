@@ -60,3 +60,6 @@ function rotateList(list, number){
 
 var rotated = rotateList(array, -2);
 console.log(rotated);
+
+
+const newEl = [];
