@@ -18,37 +18,45 @@ class Town {
 };
 
 class Park extends Town {
-  constructor(name, buildyear, parkname, trees, areas){
+  constructor(name, buildyear, trees, area){
     super(name, buildyear);
-    this.parkname = parkname;
     this.trees = trees;
-    this.areas = areas;
+    this.areas = area;
+  }
+
+  calculateTreeDensity(){
+    const density = this.trees / this.areas;
+    return density;
   }
 }
 
 class Street extends Town {
-  constructor(name, buildyear, streetname, size = 'normal', length){
+  constructor(name, buildyear, size = 'normal', length){
     super(name, buildyear);
-    this.streetname = streetname;
     this.size = size;
     this.length = length;
   }
 }
 
 // 3 parks in town
-const vondelpark = new Park('Amsterdam', 1888, 'Vondelpark', 500, ['oost', 'west']);
+const vondelpark = new Park('Vondelpark', 1888, 500, 10000);
 console.log(vondelpark);
-const rembrandtpark = new Park('Amsterdam', 1888, 'Rembrandtpark', 800, ['oost', 'west']);
+console.log(vondelpark.calculateTreeDensity());
+
+const rembrandtpark = new Park('Rembrandtpark', 1901, 800, 80000 );
 console.log(rembrandtpark);
-const sarphatipark = new Park('Amsterdam', 1888, 'Sarphatipark', 80, ['oost', 'west']);
+console.log(rembrandtpark.calculateTreeDensity());
+
+const sarphatipark = new Park('Sarphatipark', 2001, 80, 1000);
 console.log(sarphatipark);
+console.log(sarphatipark.calculateTreeDensity());
 
 // 4 streets in town
-const heemstedestraat = new Street('Amsterdam', 1888, 'heemstedestraat', 'small', 100);
+const heemstedestraat = new Street('heemstedestraat', 1880, 'small', 100);
 console.log(heemstedestraat);
-const kinkerstraat = new Street('Amsterdam', 1888, 'kinkerstraat', 'normal', 150);
+const kinkerstraat = new Street('kinkerstraat', 1889, 'normal', 150);
 console.log(kinkerstraat);
-const warmondstraat = new Street('Amsterdam', 1888, 'warmondstraat', 'small', 110);
+const warmondstraat = new Street('warmondstraat', 1992, 'small', 110);
 console.log(warmondstraat);
-const zeilstraat = new Street('Amsterdam', 1888, 'zeilstraat', 'small', 80);
+const zeilstraat = new Street('zeilstraat', 1878, 'small', 80);
 console.log(zeilstraat);
